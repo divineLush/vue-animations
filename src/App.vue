@@ -7,9 +7,10 @@
   <!-- *-leave-from *-leave-active *-leave-to -->
   <!-- by default, * is gonna be v so: v-enter-from etc -->
   <!-- to customise *, gotta set "name" attribute on transition component -->
-  <transition name="fade">
-    <h1 v-if="flag" key="primary">Hello world! I'm here! I'm ready!</h1>
-  </transition>
+
+  <!-- <transition name="fade">
+       <h1 v-if="flag" key="primary">Hello world! I'm here! I'm ready!</h1>
+       </transition> -->
 
   <!-- by default, Vue will animate the second element in and animate the first element out -->
   <!-- mode attribute determines the order of animation -->
@@ -23,7 +24,14 @@
   <!-- however it's possible to specify the duration explicitly -->
   <transition name="fade" duration="5000">
     <!-- v-show also works -->
-    <h1 v-show="flag">Hello world! 5sec...</h1>
+    <p v-show="flag">Hello world! 5sec...</p>
+  </transition>
+
+  <button @click="zoom = !zoom">ZOOM</button>
+
+  <!-- type attribute tells Vue to pick up duration from CSS animation, not transition -->
+  <transition name="zoom" type="animation">
+    <p v-if="zoom">hell(o)</p>
   </transition>
 </template>
 
@@ -33,7 +41,8 @@ export default {
 
   data() {
     return {
-      flag: false
+      flag: false,
+      zoom: false
     };
   }
 };
@@ -70,5 +79,43 @@ button {
 
 .fade-leave-to {
   opacity: 0;
+}
+
+.zoom-enter-active,
+.zoom-leave-active {
+  transition: all 1s linear;
+}
+
+.zoom-enter-active {
+  animation: zoom-in 1s linear forwards;
+}
+
+.zoom-leave-active {
+  animation: zoom-out 1s linear forwards;
+}
+
+.zoom-enter-from,
+.zoom-leave-to {
+  opacity: 0;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0, 0);
+  }
+
+  to {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes zoom-out {
+  from {
+    transform: scale(1, 1);
+  }
+
+  to {
+    transform: scale(0, 0);
+  }
 }
 </style>
