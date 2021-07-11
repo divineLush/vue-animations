@@ -8,6 +8,10 @@
   <!-- by default, * is gonna be v so: v-enter-from etc -->
   <!-- to customise *, gotta set "name" attribute on transition component -->
 
+  <!-- transition only works with single elements -->
+  <!-- transition can't animate lists -->
+  <!-- gotta use transition-group for lists -->
+
   <!-- <transition name="fade">
        <h1 v-if="flag" key="primary">Hello world! I'm here! I'm ready!</h1>
        </transition> -->
@@ -34,21 +38,25 @@
     <p v-if="zoom">hell(o)</p>
   </transition>
 
-  <app-js-animation></app-js-animation>
+  <AppJsAnimation />
 
   <AppCSSAndJsTransitions />
+
+  <AppAnimatedList />
 </template>
 
 <script>
 import AppJsAnimation from "./components/AppJsAnimation.vue";
 import AppCSSAndJsTransitions from "./components/AppCSSAndJsTransitions.vue";
+import AppAnimatedList from "./components/AppAnimatedList.vue";
 
 export default {
   name: "App",
 
   components: {
     AppJsAnimation,
-    AppCSSAndJsTransitions
+    AppCSSAndJsTransitions,
+    AppAnimatedList
   },
 
   data() {

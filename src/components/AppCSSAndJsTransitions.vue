@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "AppJsAnimation",
+  name: "AppCSSAndJsTransitions",
 
   data() {
     return {
