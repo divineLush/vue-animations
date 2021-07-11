@@ -33,11 +33,19 @@
   <transition name="zoom" type="animation">
     <p v-if="zoom">hell(o)</p>
   </transition>
+
+  <app-js-animation></app-js-animation>
 </template>
 
 <script>
+import AppJsAnimation from "./components/AppJsAnimation.vue";
+
 export default {
   name: "App",
+
+  components: {
+    AppJsAnimation
+  },
 
   data() {
     return {
@@ -57,6 +65,8 @@ export default {
 }
 
 button {
+  margin: 1rem 0;
+  display: block;
   background: transparent;
   font: inherit;
   padding: 0.4rem 0.8rem;
