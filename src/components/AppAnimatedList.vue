@@ -62,4 +62,9 @@ export default {
 .fade-move {
   transition: all 1s linear;
 }
+
+/* by using the absolute positioning the item fading away will give up its space forcing the other elements to move up */
+.fade-leave-active {
+  position: absolute;
+}
 </style>
