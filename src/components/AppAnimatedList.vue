@@ -4,6 +4,8 @@
   <ul>
     <!-- transition-group components is specifically for animating items in a loop -->
     <!-- can't set mode property on transition-group -->
+
+    <!-- Vue will add a *-move class to elements that are being moved over -->
     <transition-group name="fade">
       <li v-for="(number, index) in numbers" :key="number">
         <button @click="removeItem(index)">
@@ -55,3 +57,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.fade-move {
+  transition: all 1s linear;
+}
+</style>
