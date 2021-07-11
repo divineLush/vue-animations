@@ -35,16 +35,20 @@
   </transition>
 
   <app-js-animation></app-js-animation>
+
+  <AppCSSAndJsTransitions />
 </template>
 
 <script>
 import AppJsAnimation from "./components/AppJsAnimation.vue";
+import AppCSSAndJsTransitions from "./components/AppCSSAndJsTransitions.vue";
 
 export default {
   name: "App",
 
   components: {
-    AppJsAnimation
+    AppJsAnimation,
+    AppCSSAndJsTransitions
   },
 
   data() {
